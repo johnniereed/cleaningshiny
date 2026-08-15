@@ -15,6 +15,18 @@
 #mobileDrawer[hidden]{display:none!important}
 @media (min-width:901px){#mobileDrawer,.mobile-drawer-trigger{display:none!important}}
 </style>
+<style id="footer-social-safety">
+/* Fail-safe: keep footer social buttons correctly sized even if an older CSS asset is cached. */
+.footer__brand-socials{display:flex;align-items:center;gap:12px;min-width:0}
+.footer__socials{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;flex:0 0 auto}
+.footer__social-link{width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;max-width:42px!important;max-height:42px!important;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:grid!important;place-items:center;color:#fff;background:rgba(255,255,255,.06);overflow:hidden}
+.footer__social-link svg{display:block!important;width:20px!important;height:20px!important;min-width:20px!important;min-height:20px!important;max-width:20px!important;max-height:20px!important}
+.footer__social-link:first-child svg{fill:currentColor!important;stroke:none!important}
+.footer__social-link:last-child svg{fill:none!important;stroke:currentColor!important;stroke-width:1.8!important}
+@media(max-width:900px){.footer__brand-socials{justify-content:flex-start;flex-wrap:nowrap}.footer__socials{margin-left:2px}}
+@media(max-width:600px){.footer__brand-socials{gap:10px}.footer__social-link{width:38px!important;height:38px!important;min-width:38px!important;min-height:38px!important;max-width:38px!important;max-height:38px!important}}
+@media(min-width:901px){.footer__brand-socials{position:relative;display:block;padding-bottom:48px}.footer__socials{position:absolute;left:80px;bottom:0;flex-direction:row;align-items:center;justify-content:center;gap:8px;transform:translateX(-50%)}}
+</style>
 <link href="assets/css/style-v15-20260815.css" rel="stylesheet"/>
 </head>
 <body>
@@ -245,7 +257,7 @@
 </div>
 </section>
 </main>
-<footer><div class="shell footer__grid"><div class="footer__brand-socials"><a class="brand brand--footer brand--original" href="index.html"><span class="brand__logo-wrap"><img alt="Shiny Rock Cleaning Specialist" src="assets/images/shiny-rock-original-logo.png"/></span><span class="brand__company"><b>SHINY ROCK</b><small>JANITORIAL SERVICES</small></span></a><div class="footer__socials" aria-label="Shiny Rock social media"><a class="footer__social-link" href="https://www.facebook.com/share/197cqFo65J/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Shiny Rock Janitorial on Facebook" title="Facebook"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13.7 22v-9h3l.45-3.5H13.7V7.27c0-1.01.28-1.7 1.74-1.7h1.86V2.44A25 25 0 0 0 14.58 2C11.9 2 10.06 3.64 10.06 6.65V9.5H7v3.5h3.06v9h3.64Z"/></svg></a><a class="footer__social-link" href="https://www.instagram.com/shinyrockjanitorial?igsh=djc3Y29yaWduNXF3" target="_blank" rel="noopener noreferrer" aria-label="Shiny Rock Janitorial on Instagram" title="Instagram"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1"></circle></svg></a></div></div><p>Premium commercial cleaning for Edmonton businesses.</p><div class="footer__links"><a href="#services">Services</a><a href="#about">About</a><a href="#work">Our work</a><a href="#videos">Videos</a><a href="#contact">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div><div class="shell footer__bottom"><span>© 2026 Shiny Rock Janitorial</span><span>Edmonton, Alberta</span></div></footer>
+<footer><div class="shell footer__grid"><div class="footer__brand-socials"><a class="brand brand--footer brand--original" href="index.html"><span class="brand__logo-wrap"><img alt="Shiny Rock Cleaning Specialist" src="assets/images/shiny-rock-original-logo.png"/></span><span class="brand__company"><b>SHINY ROCK</b><small>JANITORIAL SERVICES</small></span></a><div class="footer__socials" aria-label="Shiny Rock social media"><a class="footer__social-link" href="https://www.facebook.com/share/197cqFo65J/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Shiny Rock Janitorial on Facebook" title="Facebook"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><path d="M13.7 22v-9h3l.45-3.5H13.7V7.27c0-1.01.28-1.7 1.74-1.7h1.86V2.44A25 25 0 0 0 14.58 2C11.9 2 10.06 3.64 10.06 6.65V9.5H7v3.5h3.06v9h3.64Z"/></svg></a><a class="footer__social-link" href="https://www.instagram.com/shinyrockjanitorial?igsh=djc3Y29yaWduNXF3" target="_blank" rel="noopener noreferrer" aria-label="Shiny Rock Janitorial on Instagram" title="Instagram"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1"></circle></svg></a></div></div><p>Premium commercial cleaning for Edmonton businesses.</p><div class="footer__links"><a href="#services">Services</a><a href="#about">About</a><a href="#work">Our work</a><a href="#videos">Videos</a><a href="#contact">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div><div class="shell footer__bottom"><span>© 2026 Shiny Rock Janitorial</span><span>Edmonton, Alberta</span></div></footer>
 <script defer src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
 <script src="assets/js/app-v16-20260815.js"></script>
 </body>
