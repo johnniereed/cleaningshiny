@@ -220,3 +220,49 @@
   .nav__mobile-brand{margin:16px 36px 16px!important;}
   .nav__mobile-logo-wrap img{width:120px!important;height:48px!important;}
 }
+
+
+/* mobile nav size hotfix */
+@media (max-width:900px){
+  .nav__mobile-brand{margin:16px 44px 14px!important;}
+  .nav__mobile-logo-wrap{padding:8px 12px!important;}
+  .nav__mobile-logo-wrap img{width:120px!important;height:48px!important;max-width:none!important;}
+  .nav__links>a:not(.button){gap:12px!important;padding:17px 0!important;}
+  .nav__item-icon{width:18px!important;min-width:18px!important;flex:0 0 18px!important;height:18px!important;overflow:hidden!important;}
+  .nav__item-icon img{width:18px!important;height:18px!important;max-width:18px!important;max-height:18px!important;min-width:18px!important;min-height:18px!important;flex:none!important;}
+  .nav__item-chev{font-size:24px!important;}
+}
+@media (max-width:600px){
+  .nav__mobile-brand{margin:14px 44px 12px!important;}
+  .nav__mobile-logo-wrap img{width:112px!important;height:44px!important;}
+  .nav__item-icon,.nav__item-icon img{width:17px!important;height:17px!important;max-width:17px!important;max-height:17px!important;min-width:17px!important;min-height:17px!important;}
+}
+
+
+/* v8 mobile drawer exact-style override */
+@media (max-width:900px){
+  .nav__links{
+    position:fixed!important;top:0!important;right:0!important;left:auto!important;
+    width:min(68vw,310px)!important;height:100dvh!important;
+    padding:24px 24px 26px!important;background:#fff!important;
+    border:0!important;border-left:1px solid #e6e9ec!important;border-radius:0!important;
+    box-shadow:-18px 0 48px rgba(16,35,50,.14)!important;overflow-y:auto!important;
+    display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;
+  }
+  .nav__mobile-brand{display:flex!important;justify-content:center!important;align-items:center!important;margin:22px 40px 22px!important;}
+  .nav__mobile-logo-wrap{display:inline-flex!important;align-items:center!important;justify-content:center!important;background:#0b1e2e!important;border-radius:12px!important;padding:7px 10px!important;box-shadow:none!important;}
+  .nav__mobile-logo-wrap img{display:block!important;width:116px!important;height:46px!important;object-fit:contain!important;max-width:116px!important;}
+  .nav__close{position:absolute!important;top:18px!important;right:14px!important;width:38px!important;height:38px!important;font-size:32px!important;line-height:1!important;}
+  .nav__links>a:not(.button){display:grid!important;grid-template-columns:22px 1fr 18px!important;align-items:center!important;column-gap:14px!important;min-height:61px!important;padding:0!important;border-bottom:1px solid #e6e9ec!important;font-size:16px!important;font-weight:700!important;color:#101820!important;}
+  .nav__item-icon{display:flex!important;align-items:center!important;justify-content:center!important;width:22px!important;height:22px!important;min-width:22px!important;max-width:22px!important;overflow:hidden!important;}
+  .nav__item-icon svg{display:block!important;width:20px!important;height:20px!important;min-width:20px!important;max-width:20px!important;min-height:20px!important;max-height:20px!important;flex:none!important;}
+  .nav__item-label{min-width:0!important;}
+  .nav__item-chev{display:block!important;font-size:26px!important;line-height:1!important;font-weight:300!important;text-align:right!important;color:#101820!important;}
+  .nav__links .button{display:none!important;}
+}
+@media (max-width:600px){
+  .nav__links{width:min(70vw,295px)!important;padding:22px 20px 24px!important;}
+  .nav__mobile-brand{margin:22px 38px 20px!important;}
+  .nav__mobile-logo-wrap img{width:110px!important;height:44px!important;max-width:110px!important;}
+  .nav__links>a:not(.button){min-height:58px!important;font-size:15.5px!important;}
+}
