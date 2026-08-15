@@ -42,10 +42,15 @@ async function verifyTurnstile(request,env,token){
   const result=await res.json();
   if(!result.success)return {success:false,reason:'failed',codes:result['error-codes']||[]};
 
-  // The widget is restricted in Cloudflare, and the backend also accepts only our live hosts.
-  // Do not reject a valid token because of an optional analytics action label.
-  const allowedHosts=new Set(['shinyrockjanitorial.com','www.shinyrockjanitorial.com','cleaningshiny.pages.dev']);
-  if(result.hostname&&!allowedHosts.has(String(result.hostname).toLowerCase())){
+  // Mirror Cloudflare Turnstile hostname behavior: an authorized hostname also
+  // authorizes its subdomains. This covers www.shinyrockjanitorial.com and
+  // Cloudflare Pages preview hosts such as <hash>.cleaningshiny.pages.dev.
+  const hostname=String(result.hostname||'').toLowerCase().replace(/\.$/,'');
+  const hostAllowed = !hostname ||
+    hostname==='shinyrockjanitorial.com' || hostname.endsWith('.shinyrockjanitorial.com') ||
+    hostname==='cleaningshiny.pages.dev' || hostname.endsWith('.cleaningshiny.pages.dev');
+  if(!hostAllowed){
+    console.warn('Turnstile hostname rejected',hostname);
     return {success:false,reason:'wrong-host'};
   }
   return {success:true};
