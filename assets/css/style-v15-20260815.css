@@ -333,3 +333,9 @@
   .footer__brand-socials{position:relative;display:block;padding-bottom:48px}
   .footer__socials{position:absolute;left:80px;bottom:0;flex-direction:row;align-items:center;justify-content:center;gap:8px;transform:translateX(-50%)}
 }
+
+/* Mobile only: place footer social buttons directly underneath the footer logo. */
+@media (max-width:900px){
+  .footer__brand-socials{display:inline-block;width:max-content;max-width:100%}
+  .footer__socials{width:100%;margin:10px 0 0;flex-direction:row;align-items:center;justify-content:center;gap:8px}
+}
