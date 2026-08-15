@@ -316,3 +316,20 @@
   .mobile-drawer__logo img{width:108px!important;height:43px!important;max-width:108px!important}
   .mobile-drawer>a{min-height:56px!important;font-size:15.5px!important;column-gap:12px!important}
 }
+/* Footer social buttons: official Facebook and Instagram links beside the footer logo */
+.footer__brand-socials{display:flex;align-items:center;gap:12px;min-width:0}
+.footer__socials{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;flex:0 0 auto}
+.footer__social-link{width:42px;height:42px;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.06);transition:transform .2s ease,background .2s ease,border-color .2s ease}
+.footer__social-link:hover{transform:translateY(-2px);background:var(--blue);border-color:var(--blue)}
+.footer__social-link:focus-visible{outline:2px solid #70c8ed;outline-offset:3px}
+.footer__social-link svg{display:block;width:20px;height:20px}
+.footer__social-link:first-child svg{fill:currentColor;stroke:none}
+.footer__social-link:last-child svg{fill:none;stroke:currentColor;stroke-width:1.8}
+@media(max-width:900px){.footer__brand-socials{justify-content:flex-start;flex-wrap:nowrap}.footer__socials{margin-left:2px}}
+@media(max-width:600px){.footer__brand-socials{gap:10px}.footer__social-link{width:38px;height:38px}}
+
+/* Desktop only: place the footer social buttons below the original logo artwork. */
+@media (min-width:901px){
+  .footer__brand-socials{position:relative;display:block;padding-bottom:48px}
+  .footer__socials{position:absolute;left:80px;bottom:0;flex-direction:row;align-items:center;justify-content:center;gap:8px;transform:translateX(-50%)}
+}
