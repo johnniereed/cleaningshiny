@@ -1,0 +1,58 @@
+SHINY ROCK — CLOUDFLARE PAGES + RESEND + TURNSTILE SETUP
+
+The website form posts to /api/quote. The Cloudflare Pages Function in functions/api/quote.js validates the request, verifies Cloudflare Turnstile, and sends the email through Resend. No API key or Turnstile secret is exposed in browser code.
+
+REQUIRED CLOUDFLARE VARIABLES / SECRETS
+In Cloudflare: Workers & Pages > your Pages project > Settings > Variables and Secrets. Add these for Production (and Preview if you want preview deployments to submit forms):
+
+1) RESEND_API_KEY — SECRET / encrypted
+   Your Resend API key.
+
+2) QUOTE_TO_EMAIL — variable
+   The Shiny Rock email that should receive quote requests.
+
+3) QUOTE_FROM_EMAIL — variable
+   A sender address on a domain you have verified in Resend. Example:
+   Website Quotes <quotes@your-verified-domain.com>
+
+4) TURNSTILE_SITE_KEY — variable (public value)
+   The site key from a Cloudflare Turnstile widget created for the live website.
+
+5) TURNSTILE_SECRET_KEY — SECRET / encrypted
+   The matching Turnstile secret. Never put this value in HTML or JavaScript.
+
+TURNSTILE SETUP
+- In Cloudflare, create a Turnstile widget in Managed mode.
+- Add the live hostname(s), such as shinyrockjanitorial.com and www.shinyrockjanitorial.com.
+- Add the site key as TURNSTILE_SITE_KEY and encrypt the secret as TURNSTILE_SECRET_KEY in the Pages project.
+- Redeploy after adding or changing variables/secrets.
+
+RESEND SETUP
+- Verify the sending domain in Resend.
+- Use an address on that verified domain for QUOTE_FROM_EMAIL.
+- QUOTE_TO_EMAIL can be the client's existing Google Workspace/Gmail inbox.
+
+ANTI-SPAM / SECURITY INCLUDED IN CODE
+- Cloudflare Turnstile with mandatory server-side Siteverify validation
+- Honeypot field
+- Minimum form-fill-time check
+- Same-origin POST check
+- Request size and field length limits
+- Strict allowed-service validation
+- Basic burst throttling inside the Pages Function
+- HTML escaping before user text is placed in email
+- Browser security headers via _headers
+
+IMPORTANT
+- Do not paste RESEND_API_KEY or TURNSTILE_SECRET_KEY into index.html or assets/js/app.js.
+- The form will not send correctly by simply double-clicking index.html because /api/quote and /api/turnstile-config are Cloudflare Pages Functions. Deploy to Cloudflare Pages to test the real form.
+- If you test with Cloudflare's official Turnstile test keys, use them only in a development/preview environment and never in production.
+
+FINAL LIVE TEST
+1. Open the live site.
+2. Pick a specific service/facility and confirm it preselects in the form.
+3. Complete the Turnstile security check.
+4. Submit a real test inquiry.
+5. Confirm the inquiry reaches QUOTE_TO_EMAIL.
+6. Confirm Reply-To points to the visitor's email.
+7. Check Privacy and Terms links on desktop and mobile.
