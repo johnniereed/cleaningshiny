@@ -35,11 +35,19 @@ async function verifyTurnstile(request,env,token){
   body.append('response',token);
   const ip=request.headers.get('CF-Connecting-IP');
   if(ip)body.append('remoteip',ip);
+
   const res=await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify',{method:'POST',body});
   if(!res.ok)return {success:false,reason:'verification-unavailable'};
+
   const result=await res.json();
-  if(!result.success)return {success:false,reason:'failed'};
-  if(result.action&&result.action!=='quote')return {success:false,reason:'wrong-action'};
+  if(!result.success)return {success:false,reason:'failed',codes:result['error-codes']||[]};
+
+  // The widget is restricted in Cloudflare, and the backend also accepts only our live hosts.
+  // Do not reject a valid token because of an optional analytics action label.
+  const allowedHosts=new Set(['shinyrockjanitorial.com','www.shinyrockjanitorial.com','cleaningshiny.pages.dev']);
+  if(result.hostname&&!allowedHosts.has(String(result.hostname).toLowerCase())){
+    return {success:false,reason:'wrong-host'};
+  }
   return {success:true};
 }
 
