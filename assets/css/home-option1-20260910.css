@@ -123,3 +123,9 @@
 }
 @media(max-width:360px){.sr-service{grid-template-columns:48px minmax(0,1fr);gap:13px;padding:20px 14px}.sr-service-icon svg{width:48px;height:48px}.sr-facility summary{gap:9px}.sr-facility-title strong{font-size:14px}.sr-facility-links{gap:0 8px}.sr-facility-links a{gap:3px}.sr-facility-links svg{width:13px;height:13px}.sr-trust-row>div{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.sr-option1 *{transition:none!important;scroll-behavior:auto!important}}
+
+/* Mobile-only: keep the Gyms and Fitness Studios arrow beside the wrapped label. */
+@media(max-width:600px){
+  .sr-facility-link[data-sr-quote-service="Gyms and Fitness Studios"]{display:inline-block;min-height:0}
+  .sr-facility-link[data-sr-quote-service="Gyms and Fitness Studios"] svg{display:inline-block;vertical-align:-3px;margin-left:3px}
+}
